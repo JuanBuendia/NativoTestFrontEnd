@@ -1,3 +1,4 @@
+import { TasksService } from './../tasks.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -6,7 +7,8 @@ import { Task } from '../model/Task';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
-  styleUrls: ['./body.component.css']
+  styleUrls: ['./body.component.css'],
+  providers: [TasksService]
 })
 export class BodyComponent implements OnInit {
   public selectedTask: Task;
@@ -17,7 +19,7 @@ export class BodyComponent implements OnInit {
   public modalTitle: string;
   public modalBody: string;
   public modalContent: string;
-
+  private taskService: TasksService
 
   constructor(public myModal: BsModalService, public myMessage: ToastrService) {
     this.selectedTask = new Task(0, '', '', 0, '');
