@@ -19,7 +19,6 @@ export class BodyComponent implements OnInit {
   public modalTitle: string;
   public modalBody: string;
   public modalContent: string;
-  private taskService: TasksService
 
   constructor(public myModal: BsModalService, public myMessage: ToastrService) {
     this.selectedTask = new Task(0, '', '', 0, '');
